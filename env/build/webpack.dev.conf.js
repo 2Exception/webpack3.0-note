@@ -1,0 +1,31 @@
+module.exports = {
+  devtool:"cheap-module-source-map",
+  devServer:{
+    inline:true,//在console开启打包状态
+    port:8080,
+    overlay:true;
+    hot:true,
+    hotOnly:true,
+    proxy:{
+      "/":{
+        target:"https://m.weibo.cn",
+        changeOrigin:true,
+        logLevel:"debug",
+        pathRewrite:{
+          "^/comments":"/api/comments"
+        },
+        headers:{
+          "Cookie":""
+        }
+      }
+    },
+    historyApiFallback:{//html重定向
+      rewrite:{
+        from:/^\/([a-zA-Z0-9]+\/?)([a-zA-Z0-9]+)/,
+        to:function(ctx){
+          return "/" + ctx.match[1] + ctx.match[2] + ".html"
+        }
+      }
+    }
+  }
+}
