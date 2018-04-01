@@ -1,3 +1,12 @@
+/**
+ * @Author: Dingjia
+ * @Date:   2018-03-31T14:55:48+08:00
+ * @Last modified by:   Dingjia
+ * @Last modified time: 2018-04-02T00:32:56+08:00
+ */
+
+
+const webpack = require("webpack")
 const productionConfig = require("./webpack.prod.conf")
 const developmentConfig = require("./webpack.dev.conf")
 const path = require("path")
@@ -9,15 +18,15 @@ const generateConfig= env => {
 
   // 定义module中的loader
   const scriptLoader = ["babel-loader"]
-        .contact(env === "production"
-        ? []
-        : [{
-            loader:"eslint-loader",
-            options:{
-              formatter:require("eslint-friendly-formatter")
-            }
-          }]
-        );
+        // .concat(env === "production"
+        // ? []
+        // : [{
+        //     loader:"eslint-loader",
+        //     options:{
+        //       formatter:require("eslint-friendly-formatter")
+        //     }
+        //   }]
+        // );
   const extractLess = new ExtractTextWebpackPlugin({
     filename:"css/[name]-bundle-[hash:5].css"
   })
@@ -26,9 +35,11 @@ const cssLoaders = [
   {
     loader: "css-loader",
     options: {
-      minimize: true,
-      modules: true,
-      localIdentName: '[path][name]_[local]_[hash:base64:5]'
+      sourceMap: env === "development",
+      importLoaders:2
+      // minimize: true,
+      // modules: true,
+      // localIdentName: '[path][name]_[local]_[hash:base64:5]'
     }
   }, {
     loader: "postcss-loader",
@@ -38,12 +49,13 @@ const cssLoaders = [
       plugins: [
         require("autoprefixer")(),
         // :root {--mainColor:#fff;} div {color:var(--mainColor)}
-        require("postcss-cssnext")()
+        // require("postcss-cssnext")()
       ].concat(env === "production"
         ? require("postcss-sprites")({
             spritePath: "dist/assets/img/sprites",
             retina: true
           })
+          :[]
         )
     }
   }, {
@@ -54,7 +66,7 @@ const cssLoaders = [
   }
 ]
   const styleLoader = env === "production" // 生产环境需要加载提取css文件，除去style-loader要加上
-        ? extracctLess.extract({
+        ? extractLess.extract({
           fallback:"style-loader",
           use:cssLoaders
         })
@@ -81,24 +93,24 @@ const cssLoaders = [
 
   return {
     entry:{
-      "app":"./src/app.js",
+      "app":"./src/js/app.js",
     },
     output:{
-      path:path.resolve(_dirname,"./dist"),
+      path:path.resolve(__dirname,"../dist"),
       publicPath:"/", //根目录配合webpack-dev-server能解决各种路径问题
       filename:"js/[name].bundle.js",
       chunkFilename:"[name].chunk.js"//动态打包文件（非入口的js文件）
     },
     resolve:{
       alias:{
-        jquery$:path.resolve(__dirname,"src/libs/jquery.min.js")
+        jquery$:path.resolve(__dirname,"../src/libs/jquery.min.js")
       }
     },
     module:{
       rules:[{
         test:/\.js$/,
-        include:[path.resolve(__dirname,"src")],
-        exclude:[path.resolve(__dirname,"src/libs")],
+        include:[path.resolve(__dirname,"../src")],
+        exclude:[path.resolve(__dirname,"../src/libs")],
         use: scriptLoader
       },{
         test:/\.less$/,
@@ -127,12 +139,13 @@ const cssLoaders = [
       new HtmlWebpackPlugin({
         filename:"index.html",
         template:"./index.html",
-        inject:false, //剔除生产版本引人的css和js
+        // chunks: ['app'],
+        // inject:false, //剔除生产版本引人的css和js
         minify:{
           collapseWhitespace:true//html不留间隙
         }
       }),
-      new webpack.providePlugin({
+      new webpack.ProvidePlugin({
         $:"jquery"
       })
     ]
