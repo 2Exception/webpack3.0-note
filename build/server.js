@@ -10,7 +10,7 @@ const webpack = require("webpack")
 const opn = require("opn") //打开浏览器
 
 const app = express()
-const port = 3213
+const port = 3000
 
 // connect webpack and express
 const webpackDevMiddleWare = require("webpack-dev-middleware")

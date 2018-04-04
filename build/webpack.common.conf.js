@@ -13,7 +13,7 @@ const path = require("path")
 const merge = require("webpack-merge")
 const ExtractTextWebpackPlugin = require("extract-text-webpack-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
-
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin
 const generateConfig= env => {
 
   // 定义module中的loader
@@ -136,6 +136,7 @@ const cssLoaders = [
     },
     plugins:[
       extractLess,
+      new BundleAnalyzerPlugin(),
       new HtmlWebpackPlugin({
         filename:"index.html",
         template:"./index.html",
