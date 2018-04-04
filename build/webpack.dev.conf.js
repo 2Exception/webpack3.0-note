@@ -11,7 +11,7 @@ module.exports = {
   devtool:"cheap-module-source-map",
   devServer:{
     inline:true,//在console开启打包状态
-    port:8081,
+    port:8031,
     overlay:true,
     hot:true,
     hotOnly:true,

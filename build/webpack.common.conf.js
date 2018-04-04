@@ -153,7 +153,7 @@ const cssLoaders = [
 
 }
 
-// 区别生产环境、开发环境
+// 生产环境、开发环境
 module.exports = env =>{
   let config = env ==="production"?productionConfig:developmentConfig
 

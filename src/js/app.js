@@ -5,5 +5,7 @@
  * @Last modified time: 2018-04-02T00:39:49+08:00
  */
 import "../style/index.less";
-
-console.log(1212)
+import render from "./test_export-default.js"
+import * as t1 from "./test_export.js"
+console.log(render)
+console.log(t1)
