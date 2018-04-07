@@ -2,7 +2,7 @@
  * @Author: Dingjia
  * @Date:   2018-03-31T14:55:48+08:00
  * @Last modified by:   Dingjia
- * @Last modified time: 2018-04-02T00:32:56+08:00
+ * @Last modified time: 2018-04-07T23:23:18+08:00
  */
 
 
@@ -76,7 +76,7 @@ const cssLoaders = [
 
   const fileLoader = env === "development"
       ? [{
-        loader:"file-loader",//生产环境：file-loader/开发环境：url-loader
+        loader:"file-loader",//开发环境：file-loader / 生产环境：url-loader
         options:{
           name:"[name]-[hash:5].[ext]",
           outputPath:"assets/imgs",

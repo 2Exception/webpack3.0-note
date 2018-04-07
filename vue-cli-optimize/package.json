@@ -9,7 +9,8 @@
     "start": "npm run dev",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "dll":"webpack --config build/webpack.dll.conf.js"
   },
   "dependencies": {
     "element-ui": "^2.3.3",

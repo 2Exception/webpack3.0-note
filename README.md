@@ -1,5 +1,5 @@
-### webpack3.0-整理
->webpack3 汇总
+### webpack3.0 note
+>webpack3 demo
 
 * [1.模块化及babel](https://github.com/dingjiamughal/webpack3.0-note/blob/master/docs/1.%E6%A8%A1%E5%9D%97%E5%8C%96%E5%8F%8Ababel.md)
 * [2.处理css](https://github.com/dingjiamughal/webpack3.0-note/blob/master/docs/2.%E6%89%93%E5%8C%85css.md)
