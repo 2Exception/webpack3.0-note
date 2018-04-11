@@ -2,23 +2,7 @@
 >webpack3 demo
 api详解、通用配置、单页spa&&多页应用demo、vue-cli优化
 
-webpack3.0
-- [ ] **脚手架demo**
-    - [x] 基本demo（单页spa）常用配置
-    - [x] 完善多页应用打包
-        - [x] 多页单配置
-        - [x] 多页多配置
-    - [ ] 改进 vue-cli 配置，实现打包优化和个性化开发
-    - [ ] 优化打包速度（DllPlugin）
-    - [ ] 升级业务场景，拓展plugins
-    - [ ] 升级至webpack4
-- [ ] **文档docs**
-    - [x] 常用api整理
-    - [ ] 高阶api整理
-    - [ ] webpack3搭建个性化vue脚手架
-    - [ ] webpack4和webpack3版本变迁
-
-### 使用说明
+### documentation
 > 教程直接跳转：
 
 ```
@@ -60,5 +44,21 @@ $ npm run build
 cd vue-cli-optimize-demo //vue脚手架优化demo
 cd muti-page-demo // 多页应用，多入口demo
 ```
+
+### task
+- [ ] **脚手架demo**
+    - [x] 基本demo（单页spa）常用配置
+    - [x] 完善多页应用打包
+        - [x] 多页单配置
+        - [x] 多页多配置
+    - [ ] 改进 vue-cli 配置，实现打包优化和个性化开发
+    - [ ] 优化打包速度（DllPlugin）
+    - [ ] 升级业务场景，拓展plugins
+    - [ ] 升级至webpack4
+- [ ] **文档docs**
+    - [x] 常用api整理
+    - [ ] 高阶api整理
+    - [ ] webpack3搭建个性化vue脚手架
+    - [ ] webpack4和webpack3版本变迁
 
 整理不易，如需转载请注明 https://github.com/dingjiamughal/webpack3.0-note
