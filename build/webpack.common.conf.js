@@ -91,6 +91,8 @@ const cssLoaders = [
         }
       }]
 
+
+  // 基本配置
   return {
     entry:{
       "app":"./src/js/app.js",
