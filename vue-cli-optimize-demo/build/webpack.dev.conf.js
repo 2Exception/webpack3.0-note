@@ -41,7 +41,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     proxy: config.dev.proxyTable,
     quiet: true, // necessary for FriendlyErrorsPlugin
     watchOptions: {
-      poll: config.dev.poll,
+      poll: config.dev.poll, //轮询
     }
   },
   plugins: [
@@ -58,7 +58,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       inject: true
     }),
     // copy custom static assets
-    new CopyWebpackPlugin([
+    new CopyWebpackPlugin([ // 把static文件夹中的文件烤到指定目录
       {
         from: path.resolve(__dirname, '../static'),
         to: config.dev.assetsSubDirectory,
@@ -68,7 +68,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   ]
 })
 
-module.exports = new Promise((resolve, reject) => {
+module.exports = new Promise((resolve, reject) => {//检测端口是否被占用，如果被占用换个新的端口号
   portfinder.basePort = process.env.PORT || config.dev.port
   portfinder.getPort((err, port) => {
     if (err) {

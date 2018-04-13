@@ -1,3 +1,12 @@
+/**
+ * @Author: Dingjia
+ * @Date:   2018-04-04T22:05:26+08:00
+ * @Last modified by:   Dingjia
+ * @Last modified time: 2018-04-12T23:37:50+08:00
+ */
+
+
+
 'use strict'
 const path = require('path')
 const utils = require('./utils')
@@ -11,19 +20,20 @@ function resolve (dir) {
 
 
 module.exports = {
-  context: path.resolve(__dirname, '../'),
-  entry: {
+  context: path.resolve(__dirname, '../'),//上下文的路径
+  entry: { // 直接从根目录走起
     app: './src/main.js'
   },
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
+    chunkFilename: "[name].js",//解决network中动态加载js名称显示问题
     publicPath: process.env.NODE_ENV === 'production'
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
+    extensions: ['.js', '.vue', '.json'],//别名 引用不需要加后缀
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
