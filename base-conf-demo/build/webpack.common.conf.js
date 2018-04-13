@@ -2,7 +2,7 @@
  * @Author: Dingjia
  * @Date:   2018-03-31T14:55:48+08:00
  * @Last modified by:   Dingjia
- * @Last modified time: 2018-04-07T23:23:18+08:00
+ * @Last modified time: 2018-04-09T09:35:05+08:00
  */
 
 
@@ -100,8 +100,8 @@ const cssLoaders = [
     output:{
       path:path.resolve(__dirname,"../dist"),
       publicPath:"/", //根目录配合webpack-dev-server能解决各种路径问题
-      filename:"js/[name].bundle.js",
-      chunkFilename:"[name].chunk.js"//动态打包文件（非入口的js文件）
+      filename:"js/[name].[hash:5].bundle.js",
+      chunkFilename:"js/chunk/[name].[hash:5].chunk.js"//动态打包文件（非入口的js文件）
     },
     resolve:{
       alias:{

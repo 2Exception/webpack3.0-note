@@ -1,8 +1,9 @@
 {
   "name": "env",
   "version": "1.0.0",
-  "description": "",
+  "description": "webpack3 basic config demo",
   "main": "index.js",
+  "author": "djmughal",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --env development --open --config build/webpack.common.conf.js",
